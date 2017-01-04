@@ -7,18 +7,17 @@ package com.pavlovar.xml.patterns;
 public class SingletonPattern {
     public static void main(String[] args) {
 
-        for (int i=1;i<=1000;i++) {
+        for (int i = 1; i <= 1000; i++) {
             Singleton s = Singleton.getInstance();
         }
     }
 }
-//    export PATH=/Users/artempavlovskyi/IdeaProjects/apache-maven-3.3.9/bin:$PATH
 
 class Singleton {
     public int counter;
     private static Singleton instance;
 
-    private Singleton () {
+    private Singleton() {
         counter++;
         System.out.println(counter);
     }

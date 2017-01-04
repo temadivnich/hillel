@@ -19,9 +19,11 @@ class Car {
     private String speed;
     private Transmission transmission;
     private String model;
-    private Car () {
+
+    private Car() {
 
     }
+
     public static Car createNewCar() {
         return new Car();
     }
@@ -30,21 +32,26 @@ class Car {
         this.speed = speed;
         return this;
     }
+
     public Car setTransmission(Transmission transmission) {
         this.transmission = transmission;
         return this;
     }
+
     public Car setModel(String model) {
         this.model = model;
         return this;
     }
+
     public String toString() {
-        return "Car[" + "speed=" + speed + ", transmission=" + transmission + ", model=" + model +']';
+        return "Car[" + "speed=" + speed + ", transmission=" + transmission + ", model=" + model + ']';
     }
+
     enum Transmission {
         AUTO, MANUAL
     }
 }
+
 class CarBuilder {
     private String speed;
     private Car.Transmission transmission;
@@ -54,15 +61,18 @@ class CarBuilder {
         this.speed = speed;
         return this;
     }
+
     public CarBuilder setTransmission(Car.Transmission transmission) {
         this.transmission = transmission;
         return this;
     }
+
     public CarBuilder setModel(String model) {
         this.model = model;
         return this;
     }
-    public Car build(){
+
+    public Car build() {
         Car car = Car.createNewCar();
         car.setModel(model);
         car.setSpeed(speed);

@@ -10,6 +10,7 @@ public class FactoryPattern {
         v.sayHello();
 
     }
+
     public static VehicleFactory getFactory(String name) {
         if (name.equals("P")) {
             return new PorscheFactory();
@@ -24,12 +25,14 @@ public class FactoryPattern {
 interface Vehicle {
     void sayHello();
 }
+
 class Mercedes implements Vehicle {
 
     public void sayHello() {
         System.out.println("Hello, I am Mercedes");
     }
 }
+
 class Porsche implements Vehicle {
 
     public void sayHello() {
@@ -40,13 +43,15 @@ class Porsche implements Vehicle {
 interface VehicleFactory {
     Vehicle createVehicle();
 }
-class MercedesFactory implements VehicleFactory{
+
+class MercedesFactory implements VehicleFactory {
 
     public Vehicle createVehicle() {
         return new Mercedes();
     }
 }
-class PorscheFactory implements VehicleFactory{
+
+class PorscheFactory implements VehicleFactory {
 
     public Vehicle createVehicle() {
         return new Porsche();
