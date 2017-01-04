@@ -2,3 +2,4 @@
 newFile.txt
 *.iml
 *.ipr
+target/
