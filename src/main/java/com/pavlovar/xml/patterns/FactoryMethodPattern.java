@@ -3,7 +3,7 @@ package com.pavlovar.xml.patterns;
 /**
  * Created by artempavlovskyi on 04/01/2017.
  */
-public class FactoryPattern {
+public class FactoryMethodPattern {
     public static void main(String[] args) {
         VehicleFactory factory = getFactory("M");
         Vehicle v = factory.createVehicle();
