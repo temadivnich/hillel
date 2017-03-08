@@ -1,6 +1,5 @@
 import static org.testng.Assert.*;
 
-import com.google.common.base.Predicate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,10 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by artempavlovskyi on 05/03/2017.
@@ -22,7 +22,7 @@ public class SeleniumTest {
 
     @BeforeClass
     public void initChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", "/Users/artempavlovskyi/Documents/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "target/classes/chromedriver");
         driver = new ChromeDriver();
     }
 
@@ -32,11 +32,10 @@ public class SeleniumTest {
         int expected = 5;
         doSearch();
 
-//        ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("job_results_list_hldr"));
-        List<WebElement> elementList = driver.findElement(By.id("job_results_list_hldr"))
+        List<WebElement> elements = driver.findElement(By.id("job_results_list_hldr"))
                 .findElements(By.xpath("//*[contains(@id,'job_list')]//div/div[1]/p[1]/a"));
         int actual = 0;
-        for (WebElement element : elementList) {
+        for (WebElement element : elements) {
             if (element.getText().contains(keywords)) {
                 actual++;
             }
@@ -87,7 +86,7 @@ public class SeleniumTest {
         driver.get(URL);
         driver.findElement(By.id("keyword")).sendKeys("test");
         driver.findElement(By.id("jLocInputHldr")).click();
-        driver.findElement(By.xpath("//*[@id=\"location_facet_chzn_o_18\"]")).click();
+        driver.findElement(By.xpath("//*[@id=\"location_facet_chzn_o_19\"]")).click();
         driver.findElement(By.id("jSearchSubmit")).click();
 
 //        WebDriverWait wait = new WebDriverWait(driver, 10);
